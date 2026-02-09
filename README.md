@@ -1,1 +1,1 @@
-Ссылка на сайт: https://github.com/goosenok14/proforientum
+Ссылка на сайт: https://goosenok14.github.io/proforientum/
