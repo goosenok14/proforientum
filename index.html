@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПрофОриентум | Найдите свою профессию</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/logo2.png">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-briefcase"></i>
+                <span>ПрофОриентум</span>
+            </div>
+            <div class="nav-menu">
+                <a href="test.html" class="nav-link test-link">
+                    <i class="fas fa-clipboard-check"></i> Профтест
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой-секция с тестом -->
+    <section class="hero">
+        <div class="container">
+            <h1>Найдите профессию своей мечты</h1>
+            <p>Пройдите тест и узнайте, какая профессия подходит именно вам</p>
+            
+            <div class="hero-buttons">
+                <a href="test.html" class="btn-primary btn-large">
+                    <i class="fas fa-play-circle"></i> Пройти тест
+                </a>
+                <a href="#professionsSection" class="btn-secondary btn-large" id="exploreProfessionsBtn">
+                    <i class="fas fa-search"></i> Исследовать профессии
+                </a>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>100+</span>
+                    <p>Успешных тестов</p>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-briefcase"></i>
+                    <span>15+</span>
+                    <p>Профессий</p>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-university"></i>
+                    <span>20+</span>
+                    <p>ВУЗов</p>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-star"></i>
+                    <span>95%</span>
+                    <p>Точность теста</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Быстрый тест на главной -->
+    <section class="quick-test">
+        <div class="container">
+            <div class="quick-test-content">
+                <div class="quick-test-text">
+                    <h2>Быстрый тест за 5 минут</h2>
+                    <p>Узнайте свои склонности и получите персональные рекомендации по профессиям</p>
+                    <ul class="test-features">
+                        <li><i class="fas fa-check-circle"></i> 30 вопросов о ваших интересах</li>
+                        <li><i class="fas fa-check-circle"></i> Анализ способностей и склонностей</li>
+                        <li><i class="fas fa-check-circle"></i> Персональный отчет с рекомендациями</li>
+                        <li><i class="fas fa-check-circle"></i> Подбор подходящих ВУЗов</li>
+                    </ul>
+                    <a href="test.html" class="btn-primary">
+                        <i class="fas fa-rocket"></i> Начать тест
+                    </a>
+                </div>
+                <div class="quick-test-image">
+                    <div class="test-preview">
+                        <div class="test-question-preview">
+                            <div class="preview-question">Вам нравится решать сложные задачи?</div>
+                            <div class="preview-options">
+                                <div class="preview-option">Да, очень</div>
+                                <div class="preview-option">Иногда</div>
+                                <div class="preview-option">Нет</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Основной контент -->
+<main class="container">
+    <!-- Панель навигации по категориям (перенесена над списком) -->
+    <div class="content-categories-top" id="categoriesPanel">
+        <div class="categories-nav">
+            <a href="#professionsSection" class="category-link active" data-section="professions" id="professionsTab">
+                <i class="fas fa-user-tie"></i>
+                <span>Профессии</span>
+            </a>
+            <a href="#universitiesSection" class="category-link" data-section="universities" id="universitiesTab">
+                <i class="fas fa-university"></i>
+                <span>ВУЗы</span>
+            </a>
+        </div>
+    </div>
+
+        <!-- Профессии -->
+        <section id="professionsSection" class="content-section active">
+            <div class="section-header">
+                <h2><i class="fas fa-user-tie"></i> Популярные профессии</h2>
+            </div>
+            
+            <!-- Кнопка под заголовком -->
+            <div class="section-button-container">
+                <a href="test.html" class="btn-outline">
+                    <i class="fas fa-clipboard-list"></i> Подобрать профессию
+                </a>
+            </div>
+            
+            <!-- Поиск в блоке профессий -->
+            <div class="profession-search-container">
+                <div class="search-box-inline">
+                    <input type="text" id="professionSearch" placeholder="Поиск по профессиям...">
+                    <i class="fas fa-search"></i>
+                </div>
+                
+                <div class="filter-controls">
+                    <select id="categoryFilter">
+                        <option value="">Все категории</option>
+                        <option value="IT">IT</option>
+                        <option value="Аналитика">Аналитика</option>
+                        <option value="Маркетинг">Маркетинг</option>
+                        <option value="Дизайн">Дизайн</option>
+                        <option value="Менеджмент">Менеджмент</option>
+                        <option value="Медицина">Медицина</option>
+                        <option value="Образование">Образование</option>
+                        <option value="Право">Право</option>
+                        <option value="Строительство">Строительство</option>
+                        <option value="Финансы">Финансы</option>
+                        <option value="Психология">Психология</option>
+                    </select>
+                    
+                    <select id="demandFilter">
+                        <option value="">Любая востребованность</option>
+                        <option value="высокий">Высокая</option>
+                        <option value="средний">Средняя</option>
+                        <option value="низкий">Низкая</option>
+                    </select>
+                    
+                    <button id="applyFilters" class="btn-primary">
+                        <i class="fas fa-filter"></i> Применить
+                    </button>
+                    
+                    <button id="resetFilters" class="btn-outline">
+                        <i class="fas fa-redo"></i> Сбросить
+                    </button>
+                </div>
+            </div>
+            
+            <div class="profession-grid" id="professionsContainer">
+                <!-- Профессии загружаются динамически -->
+            </div>
+        </section>
+
+        <!-- Университеты -->
+        <section id="universitiesSection" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-university"></i> Ведущие университеты</h2>
+            </div>
+            
+            <!-- Кнопка под заголовком -->
+            <div class="section-button-container">
+                <a href="test.html" class="btn-outline">
+                    <i class="fas fa-clipboard-list"></i> Подобрать ВУЗ
+                </a>
+            </div>
+            
+            <div class="university-grid" id="universitiesContainer">
+                <!-- Университеты загружаются динамически -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-briefcase"></i>
+                    <span>ПрофНавигатор</span>
+                </div>
+                <div class="footer-test">
+                    <h3>Не знаете, какую профессию выбрать?</h3>
+                    <p>Пройдите наш точный профориентационный тест и получите персональные рекомендации</p>
+                    <a href="test.html" class="btn-primary">
+                        <i class="fas fa-play"></i> Пройти тест бесплатно
+                    </a>
+                </div>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-question-circle"></i> Помощь</a>
+                    <a href="#"><i class="fas fa-envelope"></i> Контакты</a>
+                    <a href="#"><i class="fas fa-shield-alt"></i> Политика конфиденциальности</a>
+                    <a href="test.html"><i class="fas fa-clipboard-check"></i> Профтест</a>
+                </div>
+                <p class="copyright">© 2024 Профориентационный портал. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div id="professionModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modalContent">
+                <!-- Контент модального окна -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Навигация по категориям
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryLinks = document.querySelectorAll('.category-link');
+            const sections = document.querySelectorAll('.content-section');
+            
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('href').substring(1);
+                    
+                    // Обновление активной категории
+                    categoryLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Показ активной секции
+                    sections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === sectionId) {
+                            section.classList.add('active');
+                            // Плавная прокрутка к секции
+                            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    });
+                });
+            });
+            
+            // Автоматическое определение активной категории при прокрутке
+            window.addEventListener('scroll', function() {
+                let currentSection = '';
+                const scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentSection = section.id;
+                    }
+                });
+                
+                if (currentSection) {
+                    categoryLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === currentSection) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    <script src="js/script.js"></script>
+    <script>
+        // Навигация по категориям
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryLinks = document.querySelectorAll('.category-link');
+            const sections = document.querySelectorAll('.content-section');
+            const professionsTab = document.getElementById('professionsTab');
+            const universitiesTab = document.getElementById('universitiesTab');
+            const exploreProfessionsBtn = document.getElementById('exploreProfessionsBtn');
+            
+            // Функция для активации вкладки Профессии
+            function activateProfessionsTab() {
+                // Обновление активной категории
+                categoryLinks.forEach(l => l.classList.remove('active'));
+                professionsTab.classList.add('active');
+                
+                // Показ активной секции
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === 'professionsSection') {
+                        section.classList.add('active');
+                    }
+                });
+                
+                // Плавная прокрутка к секции
+                document.getElementById('professionsSection').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }
+            
+            // Функция для активации вкладки ВУЗы
+            function activateUniversitiesTab() {
+                // Обновление активной категории
+                categoryLinks.forEach(l => l.classList.remove('active'));
+                universitiesTab.classList.add('active');
+                
+                // Показ активной секции
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === 'universitiesSection') {
+                        section.classList.add('active');
+                    }
+                });
+                
+                // Плавная прокрутка к секции
+                document.getElementById('universitiesSection').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }
+            
+            // Обработчик для кнопки "Исследовать профессии"
+            if (exploreProfessionsBtn) {
+                exploreProfessionsBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    activateProfessionsTab();
+                });
+            }
+            
+            // Обработчики для табов
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('href').substring(1);
+                    
+                    if (sectionId === 'professionsSection') {
+                        activateProfessionsTab();
+                    } else if (sectionId === 'universitiesSection') {
+                        activateUniversitiesTab();
+                    }
+                });
+            });
+            
+            // Автоматическое определение активной категории при прокрутке
+            window.addEventListener('scroll', function() {
+                let currentSection = '';
+                const scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentSection = section.id;
+                    }
+                });
+                
+                if (currentSection) {
+                    categoryLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === currentSection) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

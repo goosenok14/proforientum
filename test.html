@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профориентационный тест | ПрофНавигатор</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" style="color: inherit; text-decoration: none;">
+                    <i class="fas fa-briefcase"></i>
+                    <span>ПрофНавигатор</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Главная
+                </a>
+                <a href="test.html" class="nav-link test-link active">
+                    <i class="fas fa-clipboard-check"></i> Профтест
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Заголовок теста -->
+    <header class="test-header">
+        <div class="container">
+            <h1>Профориентационный тест по системе Холланда</h1>
+            <p>Ответьте на 30 вопросов и получите точные рекомендации по профессиям</p>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Контейнер теста -->
+    <div class="container">
+        <div class="test-wrapper">
+            <!-- Интро теста -->
+            <div class="test-card test-intro active" id="testIntro">
+                <div class="test-intro-content">
+                    <div class="test-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h2>Определите свою профессиональную направленность</h2>
+                    <p class="intro-description">Этот тест основан на теории Джона Холланда (RIASEC) и поможет определить ваши профессиональные склонности, интересы и способности. На основе ваших ответов мы подберем наиболее подходящие профессии и дадим рекомендации по обучению.</p>
+                    
+                    <div class="test-info-grid">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>Время прохождения</h3>
+                            <p>8-10 минут</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <h3>Вопросов</h3>
+                            <p>30 вопросов</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <h3>Точность анализа</h3>
+                            <p>95% точности</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>Рекомендации</h3>
+                            <p>Профессии + ВУЗы</p>
+                        </div>
+                    </div>
+                    
+                    <div class="test-instructions">
+                        <h3><i class="fas fa-lightbulb"></i> Как пройти тест:</h3>
+                        <ul class="instruction-list">
+                            <li>Отвечайте честно, выбирая вариант, который лучше всего описывает вас</li>
+                            <li>Не думайте слишком долго - выбирайте первый пришедший в голову ответ</li>
+                            <li>Представьте себя в каждой описываемой ситуации</li>
+                            <li>На каждый вопрос отвечайте, даже если не совсем уверены</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="btn-primary btn-large start-test-btn" id="startTest">
+                        <i class="fas fa-play"></i> Начать тест
+                    </button>
+                </div>
+            </div>
+
+            <!-- Вопросы теста -->
+            <div class="test-card test-questions" id="testQuestions">
+                <div class="test-question-wrapper">
+                    <div id="questionContainer">
+                        <!-- Вопросы загружаются динамически -->
+                    </div>
+                    
+                    <div class="test-progress">
+                        <div class="progress-info">
+                            <span id="currentQuestion">1</span> из <span id="totalQuestions">30</span> вопросов
+                        </div>
+                    </div>
+                    
+                    <div class="test-navigation">
+                        <button class="btn-outline nav-btn" id="prevQuestion" disabled>
+                            <i class="fas fa-arrow-left"></i> Назад
+                        </button>
+                        
+                        <button class="btn-primary nav-btn" id="nextQuestion">
+                            Далее <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Результаты теста -->
+            <div class="test-card test-results" id="testResults">
+                <div class="results-header">
+                    <div class="results-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h2>Тест завершен!</h2>
+                    <p class="results-subtitle">На основе ваших ответов мы определили ваш профессиональный профиль</p>
+                </div>
+                
+                <div class="results-content">
+                    <div class="holland-code-section">
+                        <h3><i class="fas fa-code"></i> Ваш код по Холланду</h3>
+                        <div class="profession-types" id="professionTypes">
+                            <!-- Типы профессий загружаются динамически -->
+                        </div>
+                    </div>
+                    
+                    <div class="results-details">
+                        <h3><i class="fas fa-chart-bar"></i> Подробный анализ</h3>
+                        <div class="result-categories-grid" id="resultCategories">
+                            <!-- Категории будут добавлены динамически -->
+                        </div>
+                    </div>
+                    
+                    <div class="recommended-section">
+                        <div class="section-header">
+                            <h3><i class="fas fa-star"></i> Рекомендованные профессии</h3>
+                            <p class="section-subtitle">Профессии, наиболее подходящие вашему профилю</p>
+                        </div>
+                        <div class="recommended-professions-list" id="recommendedProfessions">
+                            <!-- Профессии загружаются динамически -->
+                        </div>
+                    </div>
+                    
+                    <div class="results-actions">
+                        <button class="btn-primary action-btn" id="saveResults">
+                            <i class="fas fa-save"></i> Сохранить результаты
+                        </button>
+                        <a href="index.html" class="btn-outline action-btn">
+                            <i class="fas fa-search"></i> Исследовать все профессии
+                        </a>
+                        <a href="test.html" class="btn-text">
+                            <i class="fas fa-redo"></i> Пройти тест заново
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-briefcase"></i>
+                    <span>ПрофНавигатор</span>
+                </div>
+                <p class="copyright">© 2024 Профориентационный портал. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/test.js"></script>
+</body>
+</html>
